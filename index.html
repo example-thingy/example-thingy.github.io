@@ -18,9 +18,10 @@
     
 <style>
 body {
-            margin: 0;
-            overflow: auto; /* Allows scrolling around the large canvas */
-            background-color: #111;
+    position: relative; /* Anchor for absolute positioning */
+    display: inline-block; /* Forces body to expand to match canvas size */
+    overflow: auto;
+    background-color: #111;
         }
 
         /* Container that matches the dynamic size of the canvas */
