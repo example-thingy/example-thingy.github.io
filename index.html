@@ -17,22 +17,38 @@
     <canvas id="myCanvas"></canvas>
     
 <style>
-    #clickToStartPurgatory {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-    }
-            /* Remove default margins and hide scrollbars if you want a seamless look */
-        body {
+body {
             margin: 0;
-            overflow: auto; /* Allows scrolling around the massive canvas */
+            overflow: auto; /* Allows scrolling around the large canvas */
             background-color: #111;
         }
 
-        canvas {
-            display: block; /* Removes default inline spacing alignment issues */
+        /* Container that matches the dynamic size of the canvas */
+        #canvasContainer {
+            position: relative;
+            display: inline-block; /* Wraps tightly around the canvas */
         }
-</style>
+
+        canvas {
+            display: block;
+            visibility: hidden;
+        }
+
+        /* Fixed button at the top for interaction */
+        #clickToStart {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+
+        /* Button positioned at the bottom-right corner of the canvas */
+        #clickToStartPurgatory {
+            position: absolute;
+            bottom: 20px; /* Added 'px' */
+            right: 20px;  /* Added 'px' */
+            z-index: 10;
+        }</style>
     
     <script>
         const canvas = document.getElementById('myCanvas');
