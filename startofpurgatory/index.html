@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Again (part 2, the sequel)</title>
+    <link rel="stylesheet" href="../purgatorystart.css">
+</head>
+
+<body>
+    <p>Today 12:00 AM</p>
+    <div class="chat-container">
+        <div class="message received">Loading... 159% there...</div>
+        <div class="message sent">This level was hacked by Gboy.</div>
+        <div class="message received">Bro what does that mean???</div>
+        <div class="message sent">You're iPhone 0 is here!
+        </div>
+    </div>
+
+    <script>
+        const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+        async function initButton() {
+            // Wait 10 seconds before displaying the button
+            await wait(10000);
+
+            // Step 1: Create the button element
+            const myButton = document.createElement('button');
+
+            // Step 2: Configure the button
+            myButton.innerText = 'You read, now go to next room.';
+            myButton.id = 'dynamicButton';
+            myButton.className = 'btn btn-primary';
+
+            // Step 3: Add event listener
+            myButton.addEventListener('click', () => {
+                window.location.href = "../newpurgatory/";
+            });
+
+            // Step 4: Append the button to the DOM so it becomes visible
+            document.body.appendChild(myButton);
+        }
+
+        initButton();
+    </script>
+</body>
+
+</html>
