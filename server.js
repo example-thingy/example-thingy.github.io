@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
 
     // Custom route mapping
     if (pathname === "/") {
-        pathname = "/example.html";
+        pathname = "/index.html";
     } else if (pathname === "/startofpurgatory") {
         pathname = "/start.html";
     }
