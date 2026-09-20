@@ -1,0 +1,99 @@
+body {
+    background: #000000;
+}
+
+/* Chat container needed for flex alignment */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: -20px auto;
+    padding: 20px;
+}
+
+p {
+    font-family: "SF Pro Text";
+    color: #8A8A8E;
+    text-align: center;
+    font-size: 11px;
+    top: 0px;
+}
+
+.message {
+    position: relative;
+    /* REQUIRED so absolute ::before / ::after attach to the bubble */
+    padding: 12px 18px;
+    border-radius: 20px;
+    font-family: "SF Pro Text";
+    font-size: 16px;
+    line-height: 1.4;
+    max-width: 75%;
+    margin-bottom: 12px;
+    word-wrap: break-word;
+}
+
+/* Common tail pseudo-element styling */
+.message::before,
+.message::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    /* Height of the tail hook */
+}
+
+/* ================= SENT MESSAGE (Blue) ================= */
+.message.sent {
+    align-self: flex-end;
+    background-color: #007AFF;
+    color: white;
+    border-bottom-right-radius: 4px;
+    /* Flattens bottom corner for tail blend */
+}
+
+/* Main blue tail curve */
+.message.sent::before {
+    right: -8px;
+    width: 20px;
+    /* Thicker tail width */
+    background-color: #007AFF;
+    border-bottom-left-radius: 16px 14px;
+}
+
+/* Dark cutout to form the inner hook shape */
+.message.sent::after {
+    content: "";
+    right: -12px;
+    width: 12px;
+    height: 20px;
+    /* Must have height */
+    background-color: #000000;
+    /* Must match page background */
+    border-bottom-left-radius: 10px;
+}
+
+/* ================= RECEIVED MESSAGE (Gray) ================= */
+.message.received {
+    align-self: flex-start;
+    background-color: #262629;
+    color: white;
+    border-bottom-left-radius: 4px;
+}
+
+.message.received::before {
+    left: -8px;
+    width: 20px;
+    background-color: #262629;
+    border-bottom-right-radius: 16px 14px;
+}
+
+.message.received::after {
+    content: "";
+    left: -12px;
+    width: 12px;
+    height: 20px;
+    /* Must have height */
+    background-color: #000000;
+    /* Must match page background */
+    border-bottom-right-radius: 10px;
+}
